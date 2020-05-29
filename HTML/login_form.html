@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+    </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        body{
+            font-family: "맑은고딕","돋움";
+            font-size: 12px;
+            color:444444;
+        }
+        #login_box{
+            width: 230px;
+            height: 130px;
+            border:solid 1px #bbbbbb;
+            border-radius: 15px;
+            margin: 10px 0 0 10px;
+            padding: 10px 0 0 15px;
+
+        }
+        h2{
+            font-family: "Arial";
+            margin-bottom: 10px;
+        }
+        #id_pass,#login_btn{
+            display: inline-block;
+            vertical-align: :top;
+        }
+        #id_pass span{
+            display: inline-block;
+            width: 20px;
+        }
+        #pass{
+            margin-top: 3px;
+        }
+        #login_btn button{
+            margin-top: 10px;
+            margin-left: 20px;
+            text-decoration: underline;
+        }
+        #btns{
+            margin: 12px 0 0 0;
+            text-decoration: underline;
+        }
+        #btns li{
+            margin-left: 10px;
+            display: inline;
+        }
+    </style>
+    <body>
+        <form >
+            <div id = "login_box">
+                <h2>Member Login</h2>
+                <ul id = "input_button">
+                    <li id = "id_pass">
+                        <ul>
+                            <li>
+                                <span>ID</span>
+                                <input type="text">
+                            </li><!--id-->
+                            <li id = "pass">
+                                <span>PW</span>
+                                <input type="password">
+                            </li><!-- pass-->
+                        </ul>
+                    </li>
+                    <li id = "login_btn">
+                        <button>로그인</button>
+                    </li>
+                </ul>
+                <ul id = "btns">
+                    <li>회원 가입</li>
+                    <li>아이디/비밀번호찾기</li>
+                </ul>
+            </div><!-- login box-->
+        </form>
+    </body>
+</html>
