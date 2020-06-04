@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>웹 페이지의 구성 요소</title>
+<style>
+    #box{
+        width: 300px;
+        height: 100px;
+    }
+	#box.hover{
+        background-color: red;
+    }
+</style>
+
+</head>
+<body>
+    <div id ="box">
+        <h1 >마우스를 올려주세요 </h1>
+    </div>
+    <script>
+        var box = document.getElementById("box");
+        box.addEventListener('mouseover',function () {
+            box.setAttribute('class','hover');
+            
+        });
+        box.addEventListener('mouseout',function () {
+            box.removeAttribute('class');
+            
+        });
+    </script>
+    </body>
+</html>

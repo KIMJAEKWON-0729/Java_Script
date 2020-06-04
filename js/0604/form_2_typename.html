@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>Document</title>
+</head>
+<body>
+    <form name="frm">
+        <input type="text"/>
+        <input type="button" onclick="put_text" value="click"/></form>
+    <script>
+        function put_text(){
+            var frm = document.forms['frm']['text'];
+
+            frm.value = '값을 입력';
+        }
+    </script>
+</body>
+</html>
