@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change</title>
+</head>
+<body>
+    <p>차 리스트 고르기 </p>
+    <select  id="myselect"  onchange="myfunc()">
+    <option value="Audi">Audi</option>
+    <option value="BMW">BMW</option>
+    <option value="Mercedes">Benz</option>
+    <option value="Volvo">Volvo</option>
+    </select>
+    <p>When you select a new car a function is triggered which out puts </p>
+    <p id  = "demo"></p>
+    
+    <script>
+
+
+        function myfunc(){
+            var x = document.getElementById("myselect").value;// option  의 벨류를 뱉는다 
+            document.getElementById("demo").innerHTML = "You selected:"+ x;
+             
+        
+            
+        }
+    </script>
+
+</body>
+</html>

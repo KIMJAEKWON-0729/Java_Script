@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onclick</title>
+</head>
+<body>
+    <h1>onclick event</h1>
+    <p>버튼 클릭이 id 데모랑 연결 하여 클릭할때 id지정해준 구문에 나타남</p>
+    <p>button  온클릭 옵션에 스크립트 function  연결</p>
+    
+    <button onclick="myfunc()">쿨릭</button>
+    <p id = "demo"></p>
+
+
+    <script>
+        function myfunc() {
+            document.getElementById("demo").innerHTML = "Hello World";
+            
+        }
+    </script>
+</body>
+</html>
