@@ -1,62 +1,92 @@
-var banner = document.getElementById('banner');
-var img = document.getElementsByTagName('img');
-var toggle = document.getElementById('toggle');
-var sound_btn = document.getElementById('sound_btn');
+//변수 선언부
+var wrapper = document.querySelector('.wrapper'),
+    page = document.querySelectorAll('.page'),
+    indicator = document.getElementById('indicator'),
+    indicator_li = indicator.querySelectorAll('li');
 
-var banner_height = getComputedStyle(banner).height;
-var cast = [];
+var yDeg = 0, // 각도변수 rotateY()적용
+    indicator_num = 1,
+    indicator_length = page.length,
+    w = page[0].offsetWidth,
+    page_angle = 0,
+    page_vector = 0;
 
-function set_balloon(num){
-    //풍선의 속성 값을 랜덤으로 생성
-    var x = Math.floor(Math.random() *(500-10) +10),  //10에서 500사이의 값
-        y = Math.floor(Math.random() * (400-120)+120),
-        size = Math.floor(Math.random() *(200-100)+100),
-        angle = Math.floor(Math.random() *(360-0) +0),
-        speed = Math.random() *(2-0)+0;
+var hammer = new Hammer(wrapper);   
 
-    //풍선 객체
-    cast[num] = {
-        x:x,
-        y:-y,
-        size:size,
-        angle:angle,
-        speed:speed
-    };
+//페이지 초기화 함수 init_page
+function init_page(){
+    w = page[0].offsetWidth;
 
-}
-
-//풍선 객체 초기화 함수 
-function ball_init() {
-    for(var i = 0; i<img.length; i++){
-        set_balloon(i);
-        img[i].style.left ='-9999px';
-        img[i].style.top = '-9999px';
-    }
+    //3D page 4면체 위치 정의
+    for (var i = 0; i < page.length; i++){
+        page[i].style.transform = 'rotateY(' + page_angle  + ' deg) translateZ('+ (w/2) +'px)';
+        page_angle += 90;
+     }
+     
+     //page wrapper 정면으로 초기화
+     wrapper.style.transform = 'translateZ(' + (-w/2) + 'px) rotateY(' + yDeg + 'deg)';
     
 }
-
-
-function animate_balloon() {
-    for(var i = 0; i<img.length;i++){
-        //풍선 속성 변경
-        img[i].style.left = cast[i].x+'px';
-        img[i].style.top = cast[i].y +'px';
-        img[i].style.transform = 'rotate(' +cast[i].angle+ 'deg)';
-        //풍선이 화면안에 있으면 
-        if (cast[i].y <parseInt(banner_height)){
-            cast[i].y += 1+cast[i].speed;
-            cast[i].angle += cast[i].speed;
-            
-        } else {
-            set_balloon(i);
-            
-        }
+//인디케이터 초기화
+function init_indicator(){
+    //인디케이터 표시
+    for (var i = 0; i < indicator_length; i++){
+        indicator.innerHTML += '<li>' + (i+1) + '</li>';
+        
     }
+    indicator_li = indicator.querySelectorAll('li');
+    change_page(indicator_num);
     
-}// end move_ballon
-
-ball_init();
-setInterval(function () {animate_balloon();
+}
+//페이지 전환
+function change_page(inum){
+    indicator_li[inum-1].setAttribute('class','active');
+    yDeg = -90 * (inum - 1);
+    wrapper.style.transform = 'translateZ(' + (-w/2) + 'px) rotateY(' + yDeg + 'deg)';
     
-},1000/30)
+    //인디케이터 표시 
+    for (var i = 0; i < indicator_li.length; i++) {
+        indicator_li[i].removeAttribute('class');   
+    }
+    indicator_li[inum - 1].setAttribute('class','active');
+}
 
+/*----------------------------------------------------------------*/
+
+init_page();
+init_indicator();
+
+/*---------------------이벤트 리스너----------------------*/
+for (var i = 0; i < indicator_li.length; i++){
+    indicator_li[i].addEventListener('click',function(){
+        indicator_num = parseInt(this.innerText);
+        change_page(indicator_num);
+        
+    });
+    
+}
+// 터치 swipe left
+hammer.on('swipeleft', function(e){
+	// 인디케이터(페이지) 이동 범위 내이면
+	if(indicator_num < indicator_length){
+		page_vector = 1;
+	} else page_vector = 0;
+
+	indicator_num += page_vector;				
+	change_page(indicator_num);			
+});
+
+// 터치 swipe right
+hammer.on('swiperight', function(e){
+	if(indicator_num > 1){
+		page_vector = -1;
+	} else page_vector = 0;
+
+	indicator_num += page_vector;				
+	change_page(indicator_num);			
+});
+
+// 창크기 변경시 페이지 초기화
+window.onresize = function(){
+	init_page();	
+}
