@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 캐릭터 소개 
+        document.write("내 이름은 루이스 이며 직업은 기사입니다 <br>");
+        document.write("내 이름은 플레네 이며 직업은 마법사입니다<br>");
+    
+        function my_character(name,job) {
+            document.write("내 이름은 "+ name + "이며 직업은" + job + "입니다 <br>");
+            
+        }
+        //함수를 호출
+        my_character('루이스','기사');
+        my_character('플레네','마법사');
+
+        //함수를 선언
+        function my_character(name, job) {
+            document.write('내 이름은' + name+ '이며 직업은' + job +'입니다<br>');
+            
+        }
+        var char_name1 = '루이스';
+        var char_job = '기사';
+
+        var char_name2 ='플레네';
+        var char_job2 = '마법사';
+
+        my_character(char_name1,char_job);
+        my_character(char_name2,char_job2);
+    </script>
+    
+</body>
+</html>

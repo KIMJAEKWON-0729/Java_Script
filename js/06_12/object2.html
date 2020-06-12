@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //객체 선언 
+
+        function my_char(name ,job) {
+            document.write("내 이름은 "+ name + "이며 직업은" + job + "입니다 <br>");
+            
+        }
+        //캐릭터 객체 선언
+        var char =[
+            {
+                name:'루이스',
+                job :'기사'
+            },
+            {
+                name :'플레네',
+                job: '마법사'
+            }
+        ];
+        my_char(char[0].name, char[0].job);
+    </script>
+    
+</body>
+</html>

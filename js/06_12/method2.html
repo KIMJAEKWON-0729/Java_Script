@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+           // 생성자 함수
+           function char(name,job){
+            this.name = name;
+            this.job = job;
+            this.move = function () {
+                document.write(this.name + " "+this.job+'캐릭터 이동<br>');
+            }
+            
+        }
+        var char1 = new char('루이스', '기사');
+        
+        char1.move();
+    </script>
+    
+</body>
+</html>
