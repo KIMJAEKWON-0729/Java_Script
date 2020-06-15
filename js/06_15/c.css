@@ -1,0 +1,44 @@
+#new {
+    font-family:"Arial";
+    font-size: 12px;
+    float: left;
+}
+h1 {
+    font-size: 50px;
+    margin-left: 400px;
+}
+ul {
+    list-style-type: none;
+    float: left;
+}
+.clear {
+    clear: both;
+}
+h4 {
+    padding-bottom: 10px;
+    color: #c29638;
+    margin-left: 450px;
+}
+#new {
+    margin-left: 100px;
+}
+#new h4 span{
+    color:#80a727;
+}
+#new.item{
+    margin-top: 50px;
+    
+}
+#new .subject{
+    margin-top: 5px;
+    color:#888888;
+}
+#new .comment {
+    margin-top: 5px;
+    font-weight:bold;
+    font-size: 20px;
+}
+#new .data {
+    font-size: 10px;
+    color:#444;
+}

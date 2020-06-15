@@ -1,0 +1,24 @@
+a {text-decoration:none;color:inherit;}
+a:hover {text-decoration:none;}
+
+
+#page{
+    
+    width: 100%;
+    margin: 0 auto;background-color:#fff; z-index:1000; min-width:1120px;
+}
+
+#page >.top{
+    position:relative; width:100%; height:43px; line-height:43px; border-bottom:1px solid #f0f0f0; text-align: right; padding:0 80px; box-sizing: border-box;  }
+
+
+#page >.top .lan{font-size:100%; color:#888888; text-align: right;}
+
+
+
+#page >.navi{position:relative; width:100%; height:70px; line-height:70px; text-align: center; box-sizing: border-box; border-bottom:1px solid #e1e0e1; background-color: #fff;}
+#page >.navi>ul{text-align: center;}
+#page >.navi >ul>li{
+    display: inline-block; text-align: center;
+    
+}

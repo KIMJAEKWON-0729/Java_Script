@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    font-weight: normal;
+}
+p {
+    margin-bottom: 10px;
+}
+section {
+    color: #ccc;
+    font-size: 70%;
+}
+aside{
+    color: #2b2b;
+}
+#weather_info {
+    position: relative;
+    width: 350px;
+    height: 100%;
+    border: 1px solid #999;
+    box-sizing: border-box;
+    float: right;
+    padding: 10px;
+    background: #333;
+    background: url("https://lintvwkbn.files.wordpress.com/2016/03/youngstown-ohio-weather-forecast-cloudy-7.jpg") no-repeat;
+    background-size: cover;
+    background-color: #2d2d2d;
+    color: white;
+}
+h1 {
+    background: #666;
+    padding: 10px;
+    font-size: 1.8em;
+    text-align: center;
+    opacity: 0.9;
+    border-radius: 30px;
+}
+#p1 {
+    text-align: left;
+    font-family: "고딕";
+    font-size: 1.4em;
+    margin: 30px 0 0 0;
+
+}
+#p2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 50px 0 0 0;
+}
+.orange {
+    color: orange;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.a1 {
+    float: right;
+}
+.line {
+    margin: 30px 0 0 0;
+    border-top: solid 1px white;
+}
+section>article>#map {
+    width: 100%;
+    height: 400px;
+    background-color: #ccc;
+}
+section {
+    overflow: hidden;
+    color: #ccc;
+    text-shadow: 1px 1px 1px #999;
+    padding: 10px 20px;
+}
+section>.w_id {
+    text-align: left;
+    padding-left: 20px;
+}
+section>figure,
+section>.temp {
+    float: left;
+    width: 34%;
+}
+section>figure>img {
+    width: 80px;
+}
+section>.temp {
+    font-size: 3.4em;
+}
+aside {
+    overflow: hidden;
+}
+aside>p {
+    font-size: 1.8em;
+    text-align: right;
+}
+/* 로딩이미지 */
+#weather_info .load_img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: none;
+}

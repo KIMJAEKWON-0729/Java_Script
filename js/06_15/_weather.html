@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>weathermap API | 자바스크립트 프로젝트북</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Michael Kwon">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="weather.css">
+	<link rel = "stylesheet" href = "c.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+</head>
+<body>
+	<iframe src="project_head.html" frameborder= 0></iframe>
+	
+	<div id="weather_info">
+		<h1 class="city"></h1>
+
+				<section>
+					<p class="w_id"></p>
+					<figure class="icon">
+					</figure>
+					<p class="temp"></p>
+					<aside>
+						<p class="temp_max">max</p>
+						<p class="temp_min">min</p>
+					</aside>
+
+					<p id="p1"><img src="1.png" height="50px" width="60px">커피 한잔의 여유를 즐겨봐요~</p>
+					<p id="p2">오늘 영업 시간은 <span class="orange">20:30</span>분까지 입니다.</p>
+					<div class="line"></div>
+					<p id="p1">쇼핑 시간<span class="a1">정상영업 </span><br><span class="a1">11:00~20:00</span></p>
+					<p id="p1"><span class="a1">연장영업</span><br><span class="a1">11:00~20:30</span></p><br>
+					<p id="p1">찾아오시는길</p><br><br>
+					<article>
+						<div id="map"><br>&nbsp;지도가 표시될 영역</div>
+					</article>
+				</section>
+			<img class="load_img" src="loading.gif" width="50">
+		</div>
+	
+	
+	<div id = "new">
+		<h1>Shopping News & Event</h1>
+
+		<img src = "img/login.gif"><h4>잠깐! 지금 <span>로그인</span>하시고 고객님의 구매 패턴, 취향에 기반한 쇼핑 정보를 만나보세요</h4>
+
+		<ul class = "item">
+			<li><a href = "#"><img src = "img/new01.png"></li></a>
+			<li>Hello SUMMER | 마산점</li>
+			<li class = "comment">푸빌라&친구들과 함께하는<br> 여름 속 이야기</li>
+			<li class = "data">2020.06.12(금)~2020.06.25(목) | 백화점 각 층 본매장</li>
+		</ul>
+
+		<ul class = "item">
+			<li><a href = "#"><img src = "img/new02.png"></li></a>
+			<li class = "subject">친환경 페어 | 마산점 </li>
+			<li class = "comment">지구가 좋아하는 착한<br> 친환경 패션 페어</li>
+			<li class = "data">2020.06.05(금) ~ 2002.06.14(일) | 백화점 각 층 본매장</li>
+		</ul>
+
+		<ul class = "item">
+			<li><a href = "#"><img src = "img/new03.png"></li></a>
+			<li class = "subject">푸빌라와 함께 찰칵</li>
+			<li class = "comment">푸빌라가 뭔지는<br> 모르지만 귀여워</li>
+			<li class = "data">2020.06.13(토)~2020.06.24(수)</li>
+		</ul>
+
+		<div class = "clear"></div>
+			<ul class = "item">
+				<li><a href = "#"><img src = "img/new04.png"></li></a>
+				<li class = "subject">푸빌라 기프트 | 마산점</li>
+				<li class = "comment">너도나도 갖고픈<br> 푸빌라&친구들 굿즈</li>
+				<li class = "data">2020.06.12(금)~ 2020.06.25(목) | 백화점 각 층 본매장</li>
+			</ul>
+
+			<ul class = "item">
+				<li><a href = "#"><img src = "img/new04.png"></li></a>
+				<li class = "subject">푸빌라 기프트 | 마산점</li>
+				<li class = "comment">너도나도 갖고픈<br> 푸빌라&친구들 굿즈</li>
+				<li class = "data">2020.06.12(금)~ 2020.06.25(목) | 백화점 각 층 본매장</li>
+			</ul>
+
+			<ul class = "item">
+				<li><a href = "#"><img src = "img/new04.png"></li></a>
+				<li class = "subject">푸빌라 기프트 | 마산점</li>
+				<li class = "comment">너도나도 갖고픈<br> 푸빌라&친구들 굿즈</li>
+				<li class = "data">2020.06.12(금)~ 2020.06.25(목) | 백화점 각 층 본매장</li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+
+		// API 요청 URL 변수
+		var url = 'http://api.openweathermap.org/data/2.5/weather?q=masan&APPID=e11462160015cffa69954c9f67741b7b';
+
+		// 로딩 이미지 표시
+		$('#weather_info .load_img').show();
+
+		$.getJSON(url, function (data) {
+
+			// 날씨 데이터 객체
+			var sys = data.sys; 			// 국가명, 일출/일몰			
+			var city = data.name; 			// 도시명
+			var weather = data.weather; 	// 날씨 객체
+			var main = data.main;  			// 온도 기압 관련 객체
+
+			var wmain = weather[0].main; 	// 구름 상태(Cloudiness)
+			var w_id = weather[0].id; 		// 날씨상태 id 코드
+			var icon = weather[0].icon;		// 날씨 아이콘 정보
+			var country = sys.country;  	// 국가명
+			var temp = main.temp; 			// 현재 온도
+			var temp_min = main.temp_min 	// 최저 온도
+			var temp_max = main.temp_max 	// 최고 온도
+
+			// 날씨 아이콘
+			var icon_url = 'http://openweathermap.org/img/w/' + icon;
+
+			// 날씨 정보 표시
+			$('#weather_info > .city').html(city + "/" + country);
+			$('#weather_info  .icon').html("<img src='" + icon_url + ".png'>");
+			$('#weather_info .w_id').html(wmain);
+			$('#weather_info .temp_min').html(parseInt(temp_min - 273.15) + '&deg;' + ' min');
+			$('#weather_info .temp_max').html(parseInt(temp_max - 273.15) + '&deg;' + ' max');
+			$('#weather_info  .temp').html(parseInt(temp - 273.15) + '&deg;');
+
+			// 데이터 로딩 후 로딩이미지 제거
+			$('#weather_info .load_img').hide();
+
+		})	// end getJSON()
+			.fail(function () {
+				// 오류 메시지
+				alert("loding error");
+			});
+
+	</script>
+	<script>
+
+		function initMap() {
+			// 맵 객체를 생성하고 id=‘map’ 에 지도 표시
+			var map = new google.maps.Map(document.getElementById('map'), {
+				center: { lat: 35.219694, lng: 128.586617 },
+				scrollwheel: false,
+				zoom: 17
+			});
+
+			// 마커 객체 생성
+			var marker = new google.maps.Marker({
+				map: map,
+				position: { lat: 35.219694, lng: 128.586617 },
+				title: '환영합니다!'
+			});
+
+			// 정보창 객체를 추가
+			var infoWindow = new google.maps.InfoWindow({ map: map });
+			var my_position = { lat: 35.219694, lng: 128.586617 };
+
+			infoWindow.setPosition(my_position);
+			infoWindow.setContent('환영합니다!');
+
+		}	// end initMap();
+		
+	</script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA79F3HwKaIZZGfFmXbW6esaI6fqbxti0I	&callback=initMap"
+		async defer></script>
+</body>
+
+</html>
