@@ -1,0 +1,58 @@
+a {text-decoration:none;color:inherit;}
+a:hover {text-decoration:none;}
+
+
+#page{
+    
+    width: 100%;
+    margin: 0 auto;background-color:#fff; z-index:1000; min-width:1120px;
+    position: relative;
+    padding-bottom: 30%;
+}
+
+#page >.top{
+    position:relative; width:100%; height:43px; line-height:43px; border-bottom:1px solid #f0f0f0; text-align: right; padding:0 80px; box-sizing: border-box;  }
+
+
+#page >.top .lan{font-size:100%; color:#888888; text-align: right;}
+
+
+
+#page >.navi{position:relative; width:100%; height:70px; line-height:70px; text-align: center; box-sizing: border-box; border-bottom:1px solid #e1e0e1; background-color: #fff;}
+#page >.navi>ul{text-align: center;}
+#page >.navi >ul>li{
+    display: inline-block; text-align: center;
+    
+}
+#FOOTER .top .btns_another a {display: inline-block; padding:0 12px; margin-bottom:20px;transition: all .2s;}
+
+#FOOTER {position: absolute;; width:100%; background-color:#232323; color:#fff; padding:50px 0 56px; padding-bottom: 10%;}
+#FOOTER .bottom {position:absolute; border-top:1px solid rgba(202,200,199,0.1);  padding-top:20px; padding-right:80px;}
+#FOOTER .bottom span {font-size:12px; color:#8A8A8A; display: block; line-height: 22px;}
+#FOOTER .bottom .copyright {margin-left:0%;letter-spacing: 1px}
+#FOOTER .bottom .ico_wa {position:absolute; top:20px; right:0; opacity:0.6;}
+#FOOTER .top {padding-bottom:50px;} 
+#FOOTER .top > div {display: inline-block; font-size:0; vertical-align: top;}
+#FOOTER .top .btns_another {color:#949494; font-size:14px; width:58%; position: absolute;}
+#FOOTER .top .btns_another a {display: inline-block; padding:0 12px; margin-bottom:20px;transition: all .2s;}
+#FOOTER .top .btns_another a:hover {color:#fff;}
+@media ( max-width: 480px ) {
+    #page{
+      width: auto;
+    }
+    #FOOTER{
+      float: none;
+      width: auto;
+    }
+    #FOOTER .top > div {
+      float: none;
+      width: auto;
+    }
+    #FOOTER .top .btns_another {
+        float: none;
+        width: auto;}
+
+    #FOOTER .top .btns_another a {float: none; width: auto;}
+    #FOOTER .bottom {width: auto; float: no;}
+  }
+  

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ 
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidepanel  {
+  width: 450px;
+  position: fixed;
+  z-index: 1;
+  height:100%;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidepanel a:hover {
+  color: #f1f1f1;
+}*/
+
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+ float: right;
+}
+
+.openbtn:hover {
+  background-color:#444;
+}
+p {
+    margin-bottom: 10px;
+}
+section {
+    color: #ccc;
+    font-size: 70%;
+}
+aside{
+    color: #2b2b;
+}
+#weather_info {
+    position: fixed;
+    width: 350px;
+    height: 100%;
+    border: 1px solid #999;
+    box-sizing: border-box;
+    float: right;
+    padding: 10px;
+    background: #333;
+    background: url("https://lintvwkbn.files.wordpress.com/2016/03/youngstown-ohio-weather-forecast-cloudy-7.jpg") no-repeat;
+    background-size: cover;
+    background-color: #2d2d2d;
+    color: white;
+}
+#weather_info >h1 {
+    background: #666;
+    padding: 10px;
+    font-size: 1.8em;
+    text-align: center;
+    opacity: 0.9;
+    border-radius: 30px;
+}
+#p1 {
+    text-align: left;
+    font-family: "고딕";
+    font-size: 1.4em;
+    margin: 30px 0 0 0;
+
+}
+#p2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 50px 0 0 0;
+}
+.orange {
+    color: orange;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.a1 {
+    float: right;
+}
+.line {
+    margin: 30px 0 0 0;
+    border-top: solid 1px white;
+}
+section>article>#map {
+    width: 100%;
+    height: 400px;
+    background-color: #ccc;
+}
+section {
+    overflow: hidden;
+    color: #ccc;
+    text-shadow: 1px 1px 1px #999;
+    padding: 10px 20px;
+}
+section>.w_id {
+    text-align: left;
+    padding-left: 20px;
+}
+section>figure,
+section>.temp {
+    float: left;
+    width: 34%;
+}
+section>figure>img {
+    width: 80px;
+}
+section>.temp {
+    font-size: 3.4em;
+}
+#weather_info >aside {
+    overflow: hidden;
+}
+aside>p {
+    font-size: 1.8em;
+    text-align: right;
+}
+/* 로딩이미지 */
+#weather_info .load_img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: none;
+}
+</style>
+</head>
+<body>
+    <button class="openbtn" onclick="openNav()">☰ Toggle Sidepanel</button>  
+    <h2>Collapsed Sidepanel</h2>
+    <p>Click on the hamburger menu/bar icon to open the sidepanel.</p>
+<div id="mySidepanel" class="sidepanel">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <div id="weather_info">
+        <h1 class="city">    
+        </h1>
+
+        <section>
+            <p class="w_id"></p>
+            <figure class="icon">
+             </figure>
+            <p class="temp"></p>
+                <aside>
+                    <p class="temp_max">max</p>
+                    <p class="temp_min">min</p>
+                </aside>
+                
+                <p id="p1"><img src="1.png" height="50px" width="60px">커피 한잔의 여유를 즐겨봐요~</p>
+                <p id="p2">오늘 영업 시간은 <span class="orange">20:30</span>분까지 입니다.</p>
+                <div class="line"></div>
+                <p id="p1">쇼핑 시간<span class="a1">정상영업 </span><br><span class="a1">11:00~20:00</span></p>
+                <p id="p1"><span class="a1">연장영업</span><br><span class="a1">11:00~20:30</span></p><br>
+                <p id="p1">찾아오시는길</p><br><br>
+                <article>
+                    <div id="map"><br>&nbsp;지도가 표시될 영역</div>
+                </article>
+            </section>
+        <img class="load_img" src="loading.gif" width="50">
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "350px";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
+// API 요청 URL 변수
+var url = 'http://api.openweathermap.org/data/2.5/weather?q=masan&APPID=e11462160015cffa69954c9f67741b7b';
+
+// 로딩 이미지 표시
+$('#weather_info .load_img').show();
+
+$.getJSON(url, function (data) {
+
+    // 날씨 데이터 객체
+    var sys = data.sys; 			// 국가명, 일출/일몰			
+    var city = data.name; 			// 도시명
+    var weather = data.weather; 	// 날씨 객체
+    var main = data.main;  			// 온도 기압 관련 객체
+
+    var wmain = weather[0].main; 	// 구름 상태(Cloudiness)
+    var w_id = weather[0].id; 		// 날씨상태 id 코드
+    var icon = weather[0].icon;		// 날씨 아이콘 정보
+    var country = sys.country;  	// 국가명
+    var temp = main.temp; 			// 현재 온도
+    var temp_min = main.temp_min 	// 최저 온도
+    var temp_max = main.temp_max 	// 최고 온도
+
+    // 날씨 아이콘
+    var icon_url = 'http://openweathermap.org/img/w/' + icon;
+
+    // 날씨 정보 표시
+    $('#weather_info > .city').html(city + "/" + country);
+    $('#weather_info  .icon').html("<img src='" + icon_url + ".png'>");
+    $('#weather_info .w_id').html(wmain);
+    $('#weather_info .temp_min').html(parseInt(temp_min - 273.15) + '&deg;' + ' min');
+    $('#weather_info .temp_max').html(parseInt(temp_max - 273.15) + '&deg;' + ' max');
+    $('#weather_info  .temp').html(parseInt(temp - 273.15) + '&deg;');
+
+    // 데이터 로딩 후 로딩이미지 제거
+    $('#weather_info .load_img').hide();
+
+})	// end getJSON()
+    .fail(function () {
+        // 오류 메시지
+        alert("loding error");
+    });
+
+</script>
+<script>
+
+function initMap() {
+    // 맵 객체를 생성하고 id=‘map’ 에 지도 표시
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 35.219694, lng: 128.586617 },
+        scrollwheel: false,
+        zoom: 17
+    });
+
+    // 마커 객체 생성
+    var marker = new google.maps.Marker({
+        map: map,
+        position: { lat: 35.219694, lng: 128.586617 },
+        title: '환영합니다!'
+    });
+
+    // 정보창 객체를 추가
+    var infoWindow = new google.maps.InfoWindow({ map: map });
+    var my_position = { lat: 35.219694, lng: 128.586617 };
+
+    infoWindow.setPosition(my_position);
+    infoWindow.setContent('환영합니다!');
+
+}	// end initMap();
+
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA79F3HwKaIZZGfFmXbW6esaI6fqbxti0I	&callback=initMap"
+async defer>
+</script>
+</body>
+</html> 
