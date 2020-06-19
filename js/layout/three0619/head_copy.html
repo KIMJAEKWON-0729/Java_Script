@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" href = "./css/head_copy.css">
+    </head>
+
+    <body>
+    	<div id  ="page">
+            <!-- 상단 로그인 언어설정 화면-->
+            <div class = "top">
+                <div class = "lan">
+                    <a href="#"style = "color:#888888">KR</a>
+                    <a href="#">EN</a>
+                    <a href="#">CN</a>
+                </div>
+            </div>
+            <!-- 네비게이션-->
+            <div class="menu">
+                
+                <ul class="clearfix">
+    
+                    <li><a href="#">점포안내</a>
+                        <ul>
+                            <li><a href="#">신세계 백화점</a>
+                                <ul>
+                                    <li><a href="https://www.shinsegae.com/store/main.do?storeCd=SC00002">강남점</a></li>
+                                    <li><a href="#">경기점</a></li>
+                                    <li><a href="#">광주신세계</a></li>
+                                    <li><a href="#">김해</a></li>
+                                    <li><a href="#">대구신세게</a></li>
+                                    <li><a href="#">센텀시티</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">신세계 팩토리 스토어</a>
+                                <ul>
+                                    <li><a href="#">강남점</a></li>
+                                    <li><a href="#">고양점</a></li>
+                                    <li><a href="#">대전점</a></li>
+                                    <li><a href="#">센텀점</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">신세계 스타일 마켓</a>
+                                <ul>
+                                    <li><a href="#">대전 스타일</a></li>
+                                    <li><a href="#">Masters research</a></li>
+                                    <li><a href="#">Funding</a></li>
+                                </ul>
+                            </li>
+                           
+                        </ul>
+                    </li>
+                    <li><a href="#">쇼핑정보</a>
+                        <ul>
+                            <li><a href="#"></a>
+                                <ul>
+                                    <li><a href="#">강남점</a></li>
+                                    <li><a href="#">경기점</a></li>
+                                    <li><a href="#">광주신세계</a></li>
+                                    <li><a href="#">김해</a></li>
+                                    <li><a href="#">대구신세게</a></li>
+                                    <li><a href="#">센텀시티</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"></a>
+                                <ul>
+                                    <li><a href="#">강남점</a></li>
+                                    <li><a href="#">경기점</a></li>
+                                    <li><a href="#">광주신세계</a></li>
+                                    <li><a href="#">김해</a></li>
+                                    <li><a href="#">대구신세게</a></li>
+                                    <li><a href="#">센텀시티</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a>
+                        <ul>
+                            <li><a href="#">School</a>
+                                <ul>
+                                    <li><a href="#">Lidership</a></li>
+                                    <li><a href="#">History</a></li>
+                                    <li><a href="#">Locations</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Study</a>
+                                <ul>
+                                    <li><a href="#">Undergraduate</a></li>
+                                    <li><a href="#">Masters</a></li>
+                                    <li><a href="#">International</a></li>
+                                    <li><a href="#">Online</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Study</a>
+                                <ul>
+                                    <li><a href="#">Undergraduate</a></li>
+                                    <li><a href="#">Masters</a></li>
+                                    <li><a href="#">International</a></li>
+                                    <li><a href="#">Online</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Empty sub</a>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+		  "use strict";
+		  $('.menu > ul > li:has( > ul)').addClass('menu-dropdown-icon');
+		  $('.menu > ul > li > ul:not(:has(ul))').addClass('normal-sub');
+		  $(".menu > ul").before("<a href=\"#\" class=\"menu-mobile\">&nbsp;</a>");
+		  $(".menu > ul > li").hover(function(e) {
+		    if ($(window).width() > 943) {
+		      $(this).children("ul").stop(true, false).fadeToggle(150);
+		      e.preventDefault();
+		    }
+		  });
+		  $(".menu > ul > li").click(function() {
+		    if ($(window).width() <= 943) {
+		      $(this).children("ul").fadeToggle(150);
+		    }
+		  });
+		  $(".menu-mobile").click(function(e) {
+		    $(".menu > ul").toggleClass('show-on-mobile');
+		    e.preventDefault();
+		  });
+		});
+		$(window).resize(function() {
+		  $(".menu > ul > li").children("ul").hide();
+		  $(".menu > ul").removeClass('show-on-mobile');
+		});
+
+        </script>
+    </body>
+</html>

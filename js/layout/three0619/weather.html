@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" href = "./css/weather.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    </head>
+        
+    <body>
+        <div id = "main" style = "position: fixed; top : 5px; right: 5px;" >
+        <span style="font-size:30px;cursor:pointer; float: right;" onclick="openNav()">&#9776;</span>
+        </div>
+
+        <div id="mySidenav" class="sidenav" >
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            
+            
+                <div id="weather_info">
+                    <h1 class="city"></h1>
+
+                        <section>
+                            <p class="w_id"></p>
+                            <figure class="icon">
+                            </figure>
+                            <p class="temp"></p>
+                            <aside>
+                                <p class="temp_max">max</p>
+                                <p class="temp_min">min</p>
+                            </aside>
+                            
+                            <p id="p1"><img src="./img/1.png" height="50px" width="60px">커피 한잔의 여유를 즐겨봐요</p>
+                            <p id="p2">오늘 영업 시간은 <span class="orange">20:30</span>분까지 입니다.</p>
+
+                            <div class="line"></div>
+
+                            <p id="p1">쇼핑 시간<span class="a1">정상영업 </span><br><span class="a1">11:00~20:00</span></p>
+                            <p id="p1"><span class="a1">연장영업</span><br><span class="a1">11:00~20:30</span></p><br>
+                            <p id="p1">찾아오시는길</p><br><br>
+
+                            <article>
+                                <div id="map"><br>&nbsp;지도가 표시될 영역</div>
+                            </article>
+                        </section>
+
+                    <img class="load_img" src="loading.gif" width="50">
+                </div>
+                
+                <script src = "./js/side.js"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA79F3HwKaIZZGfFmXbW6esaI6fqbxti0I&callback=initMap"
+                    async defer></script>
+        </div>
+    
+    </body>
+</html>

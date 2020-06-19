@@ -1,0 +1,51 @@
+
+
+/* 아이콘 */
+.sns{
+    text-align: center;
+    margin : 20px;
+    padding: 10px;
+    font-size: 20px;
+}
+.sns >.title a{
+    text-decoration: none;
+    color:black;
+}
+.sns >.title a:hover{
+    color: indianred;
+}
+.title{
+    font-weight: bold;
+    margin : 10px;
+}
+
+.desc{
+    font-size: 17px;
+}
+
+
+ 
+
+.icon{
+    width : 30px;
+    height : 30px;
+    margin : 10px;
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+}
+
+ 
+
+
+.icon:hover {
+    
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    
+} 
+
+body::-webkit-scrollbar {
+        width: 10px;
+        background: transparent;
+}
+    

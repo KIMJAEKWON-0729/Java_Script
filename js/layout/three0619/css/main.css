@@ -1,0 +1,114 @@
+iframe {
+    border: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+}
+
+#new {
+    font-family:"Arial";
+    font-size: 12px;
+    float: left;
+    margin-left: 60px;
+    z-index: 1;
+    position: relative;
+}
+
+h2 {
+    font-size: 60px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    float: left;
+}
+
+.clear {
+    clear: both;
+    margin-bottom: 10px;
+}
+
+h4 {
+    padding-bottom: 10px;
+    color: #c29638;
+    text-align: center;
+
+}
+
+
+
+#new h4 span{
+    color:#80a727;
+}
+
+#new.item{
+    margin-top: 50px;
+}
+
+#new .subject{
+    margin-top: 5px;
+    color:#888888;
+}
+
+#new .comment {
+    margin-top: 5px;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+#new .data {
+    font-size: 10px;
+    color:#444;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
+}
+
+#side {
+    margin-right: 0;
+    margin-top: 0;
+    float: right;
+}
+#b{
+    display: flex;
+    flex-wrap: wrap;
+}
+#b > ul{
+    margin: 10px 0 50px 0;
+}
+#test{
+    display: inline-flex;
+}
+@media screen and (max-width: 1700px){
+    #side{display: none;}
+    #new{
+        font-family:"Arial";
+        font-size: 12px;
+        z-index: 1;
+        position: absolute;
+        }
+}
+
+
+/* 이미지 */
+a img{
+    opacity: 0.8;
+}
+
+
+
+a img:hover{
+    opacity: 1;
+}
+
+
+body::-webkit-scrollbar {
+    width: 10px;
+    background: transparent;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <link rel = "stylesheet" href = "./css/login_1.css">
+        <meta name="viewport"
+			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    </head>
+    <body>
+                <!-- 로그인확인링크 -->
+                <!-- <script > 
+
+                    function check(){
+                     var id = document.gnbLoginFrm.id;
+                     if(id.value ==''){
+                         alert('아이디를 입력하세요.');
+                         return false;
+                     }
+                     if(id.length < 6 || id.length > 16) {
+        
+                    alert('아이디를 6~16 글자로 입력하세요');
+        
+                    return false;}
+                
+                    }
+                   
+                </script>  -->
+                
+                <!-- <script>
+                    function check(){
+                    var regx = /^[a-zA-Z0-9]*$/;
+                    var id = document.gnbLoginFrm.id.value;
+                    var pw = document.gnbLoginFrm.pw.value;
+                    if (id.length == 0 || id == null) {
+                    alert("아이디를 입력하시오");
+                    document.formgnbLoginFrm.id.focus();
+                    return;
+                    }
+                    if (!regx.test(id)){
+                    alert("아이디는 영어, 숫자만 입력가능합니다.");
+                    document.formgnbLoginFrm.id.focus();
+                    return false;
+                    }
+                    if (pw.length < 6 || pw == null) {
+                    alert("비밀번호는 6글자이상입니다");
+                    document.formgnbLoginFrm.pw.focus();
+                    return;
+                    }
+                    alert("로그인되었습니다.");
+                    self.close();
+
+                    //  onclick=("check2()");
+
+                    // // document.formgnbLoginFrm.submit();
+                    // function check2(){}
+                    // alert("로그인되었습니다.");
+                    // self.close();
+
+                    
+                }
+                    
+                </script> -->
+                <script>
+            function check(){
+                var regx = /^[a-zA-Z0-9]*$/;
+                var id = document.gnbLoginFrm.id.value;
+                var pw = document.gnbLoginFrm.pw.value; 
+                if (id.length == 0 || id == null) {
+                alert("아이디를 입력하시오");
+                document.formgnbLoginFrm.id.focus();
+                
+                }
+                else if (!regx.test(id)){
+                alert("아이디는 영어, 숫자만 입력가능합니다.");
+                document.formgnbLoginFrm.id.focus();
+                // return false;
+                }
+                else if (pw.length < 6 || pw == null) {
+                alert("비밀번호는 6글자이상입니다");
+                document.formgnbLoginFrm.pw.focus();
+                // return;
+                }
+                 
+                   
+                alert("로그인되었습니다.");
+                self.close();
+                
+                //  onclick=("check2()");
+
+                // // document.formgnbLoginFrm.submit();
+                // function check2(){}
+                // alert("로그인되었습니다.");
+                // self.close();
+
+
+}       
+</script>
+
+
+           
+            
+        <form id="gnbLoginFrm" name="gnbLoginFrm" method="post">
+           <div class = "total">
+
+               <div class="input_container">
+                   <div class="input_inner">
+                       <div class="idpw">
+                           <div class="id"><label for="loginId"> <input type="text" class="form-control" placeholder="아이디" onclick ="loginchk()" name = "id"maxlength="20"autocomplete="off" ></label></div>
+                           <div class="pw"><label for="loginPw"> <input type="password" class="form-control" placeholder="비밀번호" name = "pw"></label></div>
+                           <!-- <div class="pw"><label for="loginPw"><input type="password" placeholder="비밀번호" title="비밀번호" name="loginPw" autocomplete="off" maxlength="20"></label></div> -->
+                        </div>
+                        <button type="submit" class="btn" onclick="check()">로그인</button>
+                    </div>
+                    <div class="find_inner">
+                        <div class="id_save_check">
+                            <label for="chkSaveId">
+                                <input type="checkbox" id="chkSaveId" name="chkSaveId" value="Y">
+                                <span class="check_box"></span>
+                                아이디 저장하기
+                            </label>
+                        </div>
+                        
+
+                            <a href="#" class="btn_find_idpw" target="_blank" rel="find">아이디 / 비밀번호 찾기</a>
+
+                        </div>
+                        
+                    </div>
+                    <!-- 여백칸  -->
+                    <div class = "info_container"></div>
+
+                    <div class = "container">
+                    <span class = "copy">
+                        신세계닷컴에 로그인을 하시려면 신세계 포인트 통합회원으로 가입하셔야합니다.
+                        신세계포인트 통합 회원이 되시면, 신세계 닷컴, 신세계 APP 및 신세계 그룹사 사이트를 하나의 아이디로 이용하실 수 있습니다. 
+                    </span>
+                    </div>
+                
+                
+            </div>
+        </form>
+
+
+
+
+
+
+
+    </body>
+    
+    </html>

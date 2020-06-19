@@ -1,0 +1,244 @@
+a {text-decoration:none;color:inherit;}
+a:hover {text-decoration:none;}
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+#page{
+    width: 100%;
+    margin: 0 auto; 
+    background-color:#fff; 
+    position: absolute;
+    min-width:1120px;
+    clear: both;
+    z-index: 1000;
+}
+
+#page >.top{
+    position:relative; 
+    width:100%; height:43px; 
+    line-height:43px; 
+    border-bottom:1px solid #f0f0f0; 
+    text-align: right; 
+    padding:0 80px; 
+    box-sizing: border-box;  
+}
+
+
+#page >.top .lan{
+    font-size:14px; 
+    color:#888888; 
+    text-align: right;
+}
+
+
+
+
+
+#page >.navi >ul>li{
+    display: inline;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+#page >.menu {
+  position:fixed; width:100%; height:70px; line-height:20px; text-align: center; box-sizing: border-box; border-bottom:1px solid #e1e0e1; background-color: #fff;}
+
+  #page>,menu{
+    z-index: auto;
+  }
+
+
+
+.menu-mobile {
+  display: none;
+  padding: 20px;
+}
+.menu-mobile:after {
+  content: "\f394";
+  font-family: "Ionicons";
+  font-size: 2.5rem;
+  padding: 0;
+  float: right;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-25%);
+          transform: translateY(-25%);
+}
+#page >.menu-dropdown-icon:before {
+  content: "\f489";
+  font-family: "Ionicons";
+  display: none;
+  cursor: pointer;
+  float: right;
+  padding: 1.5em 2em;
+  background: #fff;
+  color: #333;
+}
+#page >.menu > ul {
+  margin: 0 auto;
+  width: 80%;
+  list-style: none;
+  padding: 0;
+  position: relative;
+  /* IF .menu position=relative -> ul = container width, ELSE ul = 100% width */
+  box-sizing: border-box;
+      clear: both;
+  display: inline-block;
+  text-align: center;    
+}
+#page >.menu > ul:before,
+#page >.menu > ul:after {
+  content: "";
+  display: table;
+}
+#page >.menu > ul:after {
+  clear: both;
+}
+#page >.menu > ul > li {
+  float:left ;
+  background: white;
+  padding: 0;
+  margin: 0;
+}
+#page >.menu > ul > li a {
+  text-decoration: none;
+  padding: 1.5em 3em;
+  display: block;
+}
+#page >.menu > ul > li:hover {
+  /*background: #f0f0f0;*/
+}
+#page >.menu > ul > li > ul {
+  display: none;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+#page >.menu > ul > li > ul:before,
+#page >.menu > ul > li > ul:after {
+  content: "";
+  display: table;
+}
+#page >.menu > ul > li > ul:after {
+  clear: both;
+}
+#page >.menu > ul > li > ul > li {
+  margin: 0;
+  padding-bottom: 0;
+  list-style: none;
+  width: 25%;
+  background: none;
+  float: left;
+}
+#page >.menu > ul > li > ul > li a {
+ 
+  padding: .2em 0;
+  width: 95%;
+  display: block;
+  border-bottom: 1px solid #ccc;
+}
+#page >.menu > ul > li > ul > li a:hover{
+    color:#03a9f4;
+}
+#page >.menu > ul > li > ul > li > ul {
+  display: block;
+  padding: 0;
+  margin: 10px 0 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+#page >.menu > ul > li > ul > li > ul:before,
+#page >.menu > ul > li > ul > li > ul:after {
+  content: "";
+  display: table;
+}
+#page >.menu > ul > li > ul > li > ul:after {
+  clear: both;
+}
+#page >.menu > ul > li > ul > li > ul > li {
+  float: left;
+  width: 100%;
+  padding: 10px 0;
+  margin: 0;
+  font-size: .8em;
+}
+#page >.menu > ul > li > ul > li > ul > li a {
+  border: 0;    
+  font-size: 14px;
+}
+#page >.menu > ul > li > ul.normal-sub {
+  width: 300px;
+  left: auto;
+  padding: 10px 20px;
+}
+#page >.menu > ul > li > ul.normal-sub > li {
+  width: 100%;
+}
+#page >.menu > ul > li > ul.normal-sub > li a {
+  border: 0;
+  padding: 1em 0;
+}
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––
+Mobile style's
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media only screen and (max-width: 959px) {
+  .menu-container {
+    width: 100%;
+  }
+  .menu-container .menu{
+    display:inline-block;
+   }
+  .menu-mobile {
+    display: block;    
+    float: right;    
+    padding: 20px 20px 0;
+  }
+  .menu-dropdown-icon:before {
+    display: block;
+  }
+  .menu > ul {
+    display: none;
+    width:100%;
+  }
+  .menu > ul > li {
+    width: 100%;
+    float: none;
+    display: block;
+  }
+  .menu > ul > li a {
+    padding: 1.5em;
+    width: 100%;
+    display: block;
+  }
+  .menu > ul > li > ul {
+    position: relative;    
+    padding: 0 40px;
+  }
+  .menu > ul > li > ul.normal-sub {
+    width: 100%;
+  }
+  .menu > ul > li > ul > li {
+    float: none;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .menu > ul > li > ul > li:first-child {
+    margin: 0;
+  }
+  .menu > ul > li > ul > li > ul {
+    position: relative;
+  }
+  .menu > ul > li > ul > li > ul > li {
+    float: none;
+  }
+  .menu .show-on-mobile {
+    display: block;
+  }
+}
